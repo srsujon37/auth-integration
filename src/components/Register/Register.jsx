@@ -1,7 +1,7 @@
-import { createUserWithEmailAndPassword } from 'firebase/auth/cordova';
+// import { createUserWithEmailAndPassword } from 'firebase/auth/cordova';
 import React from 'react';
 import { Link } from 'react-router';
-import { auth } from '../../firebase.init';
+// import { auth } from '../../firebase.init';
 
 const Register = () => {
     const handleRegister = e =>{
@@ -12,13 +12,15 @@ const Register = () => {
         console.log(email, name, password);
 
         // create user
-        createUserWithEmailAndPassword(auth, email, password)
-        .then(result => {
-            console.log(result);
-        })
-        .catch(error => {
-            console.log(error);
-        })
+        // createUserWithEmailAndPassword(auth, email, password)
+        // .then(result => {
+        //     console.log(result.user);
+        // })
+        // .catch(error => {
+        //     console.log(error);
+        // })
+
+
     }
     return (
         <div className="hero bg-base-200 min-h-screen mx-auto ">

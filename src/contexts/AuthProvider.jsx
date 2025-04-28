@@ -1,9 +1,16 @@
 import React from 'react';
 import { AuthContext } from './AuthContext';
+import { createUserWithEmailAndPassword } from 'firebase/auth/cordova';
+import { auth } from './../firebase.init';
 
-const AuthProvider = ({children}) => {
+const AuthProvider = ({ children }) => {
+
+    const createUser = (email, password) => {
+        return createUserWithEmailAndPassword(auth, email, password);
+    }
+
     const userInfo = {
-        email: 'cartoon@gmail.com'
+        createUser 
     }
     return (
         <AuthContext value={userInfo}>
