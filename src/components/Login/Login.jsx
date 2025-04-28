@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router';
 
 const Login = () => {
+    
     return (
         <div className="hero bg-base-200 min-h-screen mx-auto ">
             
