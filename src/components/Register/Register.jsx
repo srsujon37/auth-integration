@@ -1,9 +1,13 @@
 // import { createUserWithEmailAndPassword } from 'firebase/auth/cordova';
-import React from 'react';
+import React, { use } from 'react';
 import { Link } from 'react-router';
+import { AuthContext } from '../../contexts/AuthContext';
 // import { auth } from '../../firebase.init';
 
 const Register = () => {
+
+    const {createUser} = use(AuthContext)
+
     const handleRegister = e =>{
         e.preventDefault();
         const name = e.target.name.value;
@@ -20,8 +24,15 @@ const Register = () => {
         //     console.log(error);
         // })
 
+        createUser(email, password)
+        .then(result => {
+            console.log(result);
+        })
+        .catch(error => {
+            console.log(error);
+        })
 
-    }
+    }   
     return (
         <div className="hero bg-base-200 min-h-screen mx-auto ">
             
