@@ -2,7 +2,10 @@ import React, { useEffect, useState } from 'react';
 import { AuthContext } from './AuthContext';
 import { createUserWithEmailAndPassword } from 'firebase/auth/cordova';
 import { auth } from './../firebase.init';
-import { onAuthStateChanged, signInWithEmailAndPassword, signOut } from 'firebase/auth';
+import { GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from 'firebase/auth';
+
+
+const googleProvider = new GoogleAuthProvider()
 
 const AuthProvider = ({ children }) => {
 
@@ -22,6 +25,11 @@ const AuthProvider = ({ children }) => {
 
     const signOutUser = () =>{
         return signOut(auth);
+    }
+
+    const googleSignIn = () =>{
+        setLoading(true)
+        return signInWithPopup(auth, googleProvider)
     }
 
     // onAuthStateChanged(auth, (currentUser) =>{
@@ -52,6 +60,7 @@ const AuthProvider = ({ children }) => {
         createUser, 
         signInUser,
         signOutUser,
+        googleSignIn
     }
     return (
         <AuthContext value={userInfo}>
