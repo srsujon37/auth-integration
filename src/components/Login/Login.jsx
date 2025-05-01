@@ -61,8 +61,8 @@ const Login = () => {
                 Login with Google
                 </button>
            </div>
-      </div>
-    );
+        </div>
+    )
 };
 
 export default Login;
